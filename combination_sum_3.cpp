@@ -1,3 +1,6 @@
+/*
+ Leetcode 216 : Combination sum 3
+*/
 #include<vector>
 using namespace std;
 
@@ -5,10 +8,12 @@ class Solution {
 public:
 vector<vector<int>> ans;
     void generate(int k , int n , vector<int>current , int start,vector<int> nums){
+        //base condition.......
         if(n == 0 && k == 0){
            ans.push_back(current);
            return;
         }
+        //not to go negative side if k == 0
         if(k == 0 || n < 0) {
             return;
         }
