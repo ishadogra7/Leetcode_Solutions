@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool generate(vector<vector<char>>& board , string word , int rows , int cols ,int index){
+    bool generate(vector<vector<char>>& board , const string& word, int rows , int cols ,int index){
         if(index == word.length()){
             return true;
         }
@@ -12,13 +12,13 @@ public:
         char temp = board[rows][cols];
         board[rows][cols] ='#';
          
-        bool up = generate(board , word , rows-1 , cols , index+1); //up
-        bool down = generate(board , word , rows +1 , cols , index +1); // down
-        bool left = generate(board , word , rows , cols -1 , index + 1);//left
-        bool right = generate(board , word , rows , cols +1 , index + 1);//right
+        bool found = generate(board , word , rows-1 , cols , index+1)||
+                    generate(board , word , rows +1 , cols , index +1) || 
+                    generate(board , word , rows , cols -1 , index + 1) || 
+                    generate(board , word , rows , cols +1 , index + 1);
 
         board[rows][cols] = temp;
-        return up ||down || left|| right;
+        return found;
 
     }
     bool exist(vector<vector<char>>& board, string word) {
