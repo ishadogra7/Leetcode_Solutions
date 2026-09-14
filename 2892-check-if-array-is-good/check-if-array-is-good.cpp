@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isGood(vector<int>& nums) {
         int n = nums.size();
-        // if( n  < 2)return false;
+         if( n  < 2)return false;
         vector<int> temp(n+1,0);
 
         for(int i = 0 ;i< n;i++){
