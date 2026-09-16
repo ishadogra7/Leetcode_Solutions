@@ -13,7 +13,7 @@ long long mini = INT_MAX;
             st.push_back(value);
         }
          else{
-            if(value >= mini) st.push_back(value);
+              if(value >= mini) st.push_back(value);
             else{
                 long long new_value =2LL*value - mini;
                 st.push_back(new_value );
