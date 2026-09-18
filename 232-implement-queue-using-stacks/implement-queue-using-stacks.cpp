@@ -7,34 +7,30 @@ stack<int>st2;
     }
     
     void push(int x) {
-        
-        while(!st2.empty()){
-            st1.push(st2.top());
-            st2.pop();
-
-        }
-        st1.push(x);
+       st1.push(x);
+    }
+    
+    int pop(){
+        if(st2.empty()){ 
+            while(!st1.empty()){ 
+                st2.push(st1.top()); 
+                st1.pop();
+                 } }
+                  int ans = st2.top(); 
+                  st2.pop();
+                   return ans;
+    }
+   int peek() {
+     if(st2.empty()){ 
         while(!st1.empty()){
-            st2.push(st1.top());
-            st1.pop();
-        }
-    }
-    
-    int pop() {
-        if(st2.empty())return-1;
+             st2.push(st1.top());
+              st1.pop();
+               } }
+                return st2.top(); 
+                }
 
-        int ans = st2.top();
-        st2.pop();
-        return ans;
-    }
-    
-    int peek() {
-        if(st2.empty())return -1;
-        return st2.top();
-    }
-    
     bool empty() {
-        return st2.empty();
+        return (st1.empty() && st2.empty())?true:false;
     }
 };
 
