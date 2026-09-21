@@ -10,12 +10,20 @@ public:
         // return false;
        
        int n = nums.size();
-       unordered_map<int, int> temp;
+    //    unordered_map<int, int> temp;
 
-        for(int i = 0 ; i < n ;i++){
-            temp[nums[i]]++;
-            if(temp[nums[i]] > 1) return true;
-        }
-        return false;
+    //     for(int i = 0 ; i < n ;i++){
+    //         temp[nums[i]]++;
+    //         if(temp[nums[i]] > 1) return true;
+    //     }
+    //     return false;
+
+    unordered_set<int>temp;
+     for(int i = 0 ; i < n ;i++){
+        if(temp.find(nums[i]) != temp.end())return true;
+
+        temp.insert(nums[i]);
+     }
+     return false;
     }
 };
