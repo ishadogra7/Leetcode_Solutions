@@ -11,9 +11,9 @@ public:
         for(int i =0 ; i<n ;i++){
           prefix += nums[i];
 
-          int value = prefix - k;
-          if(mp.find(value) != mp.end()){
-             count = count + mp[value];
+          
+          if(mp.find(prefix - k) != mp.end()){
+             count = count + mp[prefix - k];
           }  
             mp[prefix]++;
           
