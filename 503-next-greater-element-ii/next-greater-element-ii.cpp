@@ -6,18 +6,29 @@ public:
         stack<int>st;
        
 
-        for(int i = 0;i <2*n;i++){
+        // for(int i = 0;i <2*n;i++){
 
-            while(!st.empty() && nums[i%n] > nums[st.top()]){
-                ans[st.top()] = nums[i %n];
-                st.pop();
+        //     while(!st.empty() && nums[i%n] > nums[st.top()]){
+        //         ans[st.top()] = nums[i %n];
+        //         st.pop();
             
-            }
-            if(i < n){
-              st.push(i);
-            }
+        //     }
+        //     if(i < n){
+        //       st.push(i);
+        //     }
+        //  }
             
-        }
+            for(int i = 2*n -1 ;i >= 0 ; i--){
+                int x = nums[i%n];
+                while(!st.empty() && st.top() <= x){
+                    st.pop();
+                }
+                if(i < n && !st.empty()){
+                    ans[i] = st.top();
+                }
+                st.push(x);
+            }
+        
         return ans;
     }
 };
