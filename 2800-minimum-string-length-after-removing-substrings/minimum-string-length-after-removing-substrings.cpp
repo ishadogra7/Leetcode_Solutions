@@ -22,8 +22,9 @@ public:
 
         int count =0;
         while(!st.empty()){
+              count++;
             st.pop();
-            count++;
+          
         }
 
 
