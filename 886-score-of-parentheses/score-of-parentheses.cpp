@@ -2,7 +2,7 @@ class Solution {
 public:
     int scoreOfParentheses(string s) {
         stack<int>st;
-        //int count =0;
+        int count =0;
         //int open =0;
         st.push(0);
 
@@ -12,23 +12,23 @@ public:
                    st.push(0);
                  
             }
-            else{
-             int inside = st.top();
+            else if(s[i] == ')'){
+                int val =0;
+                 
+                 while(st.top() != 0){
+                    val = val + st.top();
+                    st.pop();
+                 }
+                
+                val = max(2* val , 1);
                 st.pop();
-
-                int value;
-
-                if(inside == 0) {
-                    value = 1;
-                }
-                else {
-                    value = 2 * inside;
-                }
-
-                st.top() += value;
-            }
+                st.push(val);
         }
-
-        return st.top();
+        }
+        while( !st.empty()){
+            count += st.top();
+            st.pop();
+        }
+        return count;
     }
 }; 
