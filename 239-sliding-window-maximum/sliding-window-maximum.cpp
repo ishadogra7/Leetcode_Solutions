@@ -18,8 +18,8 @@ public:
             if(j -i  == k){
 
                 int  maxi =  mp.rbegin()->first;
-                int index = *mp[maxi].begin();
-                 ans.push_back(nums[index]);
+                //int index = *mp[maxi].begin();
+                 ans.push_back(maxi);
 
                  mp[nums[i]].erase(i);
 
