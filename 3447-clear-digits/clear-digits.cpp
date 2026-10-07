@@ -16,10 +16,7 @@ public:
         }
        } 
 
-      if(st.empty()){
-
-        return "";
-      }
+    
 
        while(!st.empty()){
           ans.push_back(st.top());
